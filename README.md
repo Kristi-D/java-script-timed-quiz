@@ -1,9 +1,9 @@
 JavaScript Timed Quiz!
 Description
-Generates a random password using JavaScript!
+Generates a timed quiz JavaScript!
 
 Installation
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+I started with a video from James Q Quick
 
 Usage
 Provide instructions and examples for use. Include screenshots as needed.
