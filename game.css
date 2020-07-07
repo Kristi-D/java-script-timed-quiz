@@ -26,3 +26,13 @@
     padding: 1.5rem;
     width: 100%;
 }
+
+.correct {
+    background-color: seagreen;
+
+}
+
+.incorrect {
+    background-color: red;
+    
+}
