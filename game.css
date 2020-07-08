@@ -10,7 +10,7 @@
 
 .choice-container.hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem rgba(red, green, blue, alpha);
+    box-shadow: 0 0.4rem 1.4rem rgba(86, 185, 235, 0.5);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
 }
@@ -33,7 +33,7 @@
 }
 
 .incorrect {
-    background-color: red;
+    background-color: crimson;
 }
 
 /* HUD */

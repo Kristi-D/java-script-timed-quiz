@@ -2,6 +2,8 @@ var question = document.getElementById("question");
 var choices = Array.from(document.getElementsByClassName('choice-text'));
 var progressText = document.getElementById('progressText');
 var scoreText = document.getElementById('score');
+var questionCounterText = document.getElementById('questionCounter');
+var scoreText = document.getElementById('score');
 
 
 let currentQuestion = {};
@@ -68,7 +70,7 @@ let questions = [
 var CORRECT_Bonus = 10;
 var MAX_QUESTIONS = 5;
 
-startGame = () => {
+startGame = function () {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
@@ -76,19 +78,23 @@ startGame = () => {
     getNewQuestion();
 };
 
-getNewQuestion = () => {
+getNewQuestion = function() {
 
     if(availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        return window.location.assign("/end.html");
+        localStorage.setItem('mostRecentScore', score);
+        return window.location.assign("end.html");
     }
 
     questionCounter++;
-    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    questionCounterText.innerText = questionCounter + "/" + MAX_QUESTIONS;
+
+
+    var questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
 
     choices.forEach( choice => {
-        const number = choice.dataset['number'];
+        var number = choice.dataset['number'];
         choice.innerText = currentQuestion['choice' + number];
     });
 
@@ -114,9 +120,13 @@ choices.forEach(choice => {
             incrementScore(CORRECT_Bonus);
 
         }
+
+        if (classToApply === "incorrect") {
+            decrementScore(CORRECT_Bonus);
+        }
         selectedChoice.parentElement.classList.add(classToApply);
 
-        setTimeout( () => {  
+        setTimeout( function() {  
         selectedChoice.parentElement.classList.remove(classToApply);
         getNewQuestion();
         }, 1000);
@@ -127,6 +137,12 @@ choices.forEach(choice => {
 incrementScore = num => {
 
     score += num;
+    scoreText.innerText = score;
+}
+
+decrementScore = num => {
+
+    score -= num;
     scoreText.innerText = score;
 }
 startGame();

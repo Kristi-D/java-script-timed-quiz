@@ -1,5 +1,5 @@
 :root {
-    background-color: bisque;
+    background-color: cornsilk;
     font-size: 62.5%;
 
 }
@@ -100,12 +100,12 @@ h3 {
     text-decoration: none;
     color: cornflowerblue;
     background-color: rgb(53, 16, 138);
+    box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 05);
 
 }
 
 .btn:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem rgba(red, green, blue, alpha);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
 
@@ -116,4 +116,24 @@ h3 {
     box-shadow: none;
     transform: none;
     
+}
+
+/* Forms */
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+input {
+    margin-bottom: 1rem;
+    width: 20rem;
+    padding: 1.5rem;
+    font-size: 1.8rem;
+    border: none;
+    box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+
 }
